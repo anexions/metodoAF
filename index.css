@@ -475,6 +475,21 @@ footer {
     .section-title h2 { font-size: 2.5rem; }
 }
 
+@media (max-width: 768px) {
+    .section-title, .benefit-card, .service-card, .contact-info {
+        text-align: center;
+    }
+    
+    .benefit-card i, .service-card i {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 576px) {
     .hero h1 { font-size: 3rem; }
     .btn { width: 100%; text-align: center; }
