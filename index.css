@@ -151,9 +151,15 @@ nav {
     align-items: center;
     text-align: center;
     background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.4)), url('images/gym-10.jpg') no-repeat center center/cover;
-    background-attachment: fixed; /* Parallax effect */
+    background-attachment: fixed; /* Parallax effect for desktop */
     color: var(--color-accent);
     padding: 0 5%;
+}
+
+@media (max-width: 1024px) {
+    .hero {
+        background-attachment: scroll; /* Disable parallax on mobile/tablet */
+    }
 }
 
 .hero h1 {
@@ -219,9 +225,11 @@ section {
     transition: var(--transition);
 }
 
-.benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+.benefit-card i {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
 }
 
 .benefit-card h3 {
@@ -342,7 +350,7 @@ footer {
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 50px;
+    padding: 0 20px;
 }
 
 .gallery-container {
@@ -400,8 +408,17 @@ footer {
     color: var(--color-accent);
 }
 
-.nav-prev { left: 0; }
-.nav-next { right: 0; }
+.nav-prev { left: 10px; }
+.nav-next { right: 10px; }
+
+@media (max-width: 768px) {
+    .gallery-nav {
+        display: none; /* Hide arrows on small screens where swiping is natural */
+    }
+    .gallery-wrapper {
+        padding: 0;
+    }
+}
 
 .gallery-item img {
     width: 100%;
@@ -455,12 +472,14 @@ footer {
         right: -100%;
         top: var(--header-height);
         flex-direction: column;
-        background: var(--bg-main);
+        background: rgba(253, 251, 247, 0.98);
         width: 100%;
+        height: calc(100vh - var(--header-height));
         text-align: center;
-        padding: 2rem 0;
+        padding: 4rem 0;
         transition: var(--transition);
         box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        backdrop-filter: blur(15px);
     }
 
     .nav-links.active {
@@ -491,8 +510,11 @@ footer {
 }
 
 @media (max-width: 576px) {
-    .hero h1 { font-size: 3rem; }
-    .btn { width: 100%; text-align: center; }
+    .hero h1 { font-size: 2.8rem; }
+    .hero p { font-size: 1rem; }
+    .btn { width: 100%; text-align: center; padding: 1rem; }
     section { padding: 60px 20px; }
-    .schedule-container { padding: 2rem; }
+    .schedule-container { padding: 1.5rem; border-radius: 12px; }
+    .section-title h2 { font-size: 2.2rem; }
+    .gallery-item { flex: 0 0 90%; }
 }
