@@ -74,7 +74,7 @@ html {
 
 h1, h2, h3 {
     font-family: 'Outfit', sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.02em;
 }
 
@@ -122,10 +122,11 @@ nav {
 }
 
 .logo {
-    font-family: 'Playfair Display', serif;
+    font-family: 'Outfit', sans-serif;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 800; /* Mucho más sólido, como el logo */
     letter-spacing: -0.5px;
+    text-transform: uppercase;
 }
 
 .nav-links {
@@ -171,8 +172,10 @@ nav {
 }
 
 .hero h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
+    font-size: clamp(3.5rem, 12vw, 7rem); /* Un poco más grande e impactante */
     margin-bottom: 1rem;
+    font-weight: 800;
+    letter-spacing: -2px;
 }
 
 .hero p {
