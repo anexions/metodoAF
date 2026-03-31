@@ -108,9 +108,16 @@ nav {
     align-items: center;
     padding: 0 5%;
     z-index: 1000;
-    background: rgba(253, 251, 247, 0.8);
+    transition: var(--transition);
+    background: rgba(253, 251, 247, 0.82);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(18, 18, 18, 0.05);
+}
+
+@media (max-width: 992px) {
+    nav {
+        padding: 0 1.5rem; /* More generous side padding for mobile */
+    }
 }
 
 .logo {
@@ -411,12 +418,15 @@ footer {
 .nav-prev { left: 10px; }
 .nav-next { right: 10px; }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .gallery-nav {
-        display: none; /* Hide arrows on small screens where swiping is natural */
+        display: none !important; /* Force hide arrows on tactile devices */
     }
     .gallery-wrapper {
         padding: 0;
+    }
+    .gallery-container {
+        padding-top: 1rem;
     }
 }
 
@@ -492,6 +502,7 @@ footer {
 
     .hero h1 { font-size: 4rem; }
     .section-title h2 { font-size: 2.5rem; }
+    #galeria { padding: 60px 0; }
 }
 
 @media (max-width: 768px) {
