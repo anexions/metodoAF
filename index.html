@@ -168,7 +168,20 @@
 
     <footer>
         <p>&copy; 2026 MÉTODOAF.</p>
+        <div class="legal-links">
+            <a href="#legal" onclick="alert('Legal: Tu vecino debe incluir aquí el Nombre/Razón Social, CIF/NIF y Dirección del centro.')">Aviso Legal</a> | 
+            <a href="#legal" onclick="alert('Privacidad: Tu vecino debe incluir aquí el tratamiento de datos de contacto realizados por WhatsApp.')">Privacidad</a> | 
+            <a href="#legal" onclick="alert('Cookies: Este sitio usa solo cookies técnicas y de sesión.')">Cookies</a>
+        </div>
     </footer>
+
+    <!-- Cookie Banner -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-content">
+            <p>Utilizamos cookies propias para mejorar tu experiencia de navegación. Al continuar navegando, aceptas nuestra <a href="#legal" style="text-decoration: underline;">política de cookies</a>.</p>
+            <button onclick="acceptCookies()" class="btn" style="padding: 0.5rem 1.5rem; font-size: 0.8rem; background: black; color: white;">Aceptar</button>
+        </div>
+    </div>
 
     <a href="https://wa.me/34695546095" class="whatsapp-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
@@ -233,6 +246,18 @@
         document.querySelectorAll('.reveal').forEach(el => {
             revealObserver.observe(el);
         });
+
+        // Cookie Consent Logic
+        function acceptCookies() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        window.onload = function() {
+            if (!localStorage.getItem('cookiesAccepted')) {
+                document.getElementById('cookieBanner').style.display = 'block';
+            }
+        };
     </script>
 
 </body>
