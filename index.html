@@ -61,7 +61,7 @@
         <img id="lightboxImg" src="" alt="Enlarged view">
     </div>
 
-    <section id="beneficios">
+    <section id="beneficios" class="reveal">
         <div class="section-title fade-in">
             <h2>Beneficios</h2>
             <p>Transforma tu estilo de vida con un enfoque integral en salud y rendimiento.</p>
@@ -103,7 +103,7 @@
         </div>
     </section>
 
-    <div class="gift-promo">
+    <div class="gift-promo reveal">
         <h2>TE REGALAMOS</h2>
         <p style="font-size: 1.5rem; font-family: 'Outfit', sans-serif; font-weight: 600; color: #121212;">Estudio de la composición corporal + Valoración inicial / Sesión inicial</p>
         <br>
@@ -222,6 +222,23 @@
             const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
             window.open(url, '_blank');
         }
+
+        // Intersection Observer for Reveal Animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
     </script>
 
 </body>

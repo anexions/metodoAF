@@ -8,6 +8,25 @@
     --text-muted: #666666;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     --header-height: 80px;
+    --shadow-premium: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secondary);
 }
 
 @keyframes fadeInUp {
@@ -29,6 +48,17 @@
 .delay-1 { animation-delay: 0.2s; }
 .delay-2 { animation-delay: 0.4s; }
 .delay-3 { animation-delay: 0.6s; }
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 * {
     margin: 0;
@@ -120,7 +150,8 @@ nav {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: linear-gradient(rgba(18, 18, 18, 0.5), rgba(18, 18, 18, 0.5)), url('images/gym-10.jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(18, 18, 18, 0.4), rgba(18, 18, 18, 0.4)), url('images/gym-10.jpg') no-repeat center center/cover;
+    background-attachment: fixed; /* Parallax effect */
     color: var(--color-accent);
     padding: 0 5%;
 }
